@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/12 18:46:00 by ouboukou         ###   ########.fr       */
+/*   Created: 2024/01/01 14:35:09 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/01/01 14:35:39 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-typedef struct s_list
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	int data;
-	struct s_list *next;	
-}	t_list;
-
-
-#endif
+	if (lst == NULL || del == NULL)
+		return ;
+	del(lst->content);
+	free(lst);
+}

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/12 18:46:00 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/12/24 09:05:15 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/12 18:44:06 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-typedef struct s_list
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	int data;
-	struct s_list *next;	
-}	t_list;
-
-
-#endif
+	if (lst == NULL || new == NULL)
+		return ;
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	new->next = *lst;
+	*lst = new;
+}

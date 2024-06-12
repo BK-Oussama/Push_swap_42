@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/12 18:46:00 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/12/27 21:27:02 by ouboukou          #+#    #+#             */
+/*   Updated: 2023/12/28 12:44:58 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
+#include "libft.h"
 
-typedef struct s_list
+t_list	*ft_lstlast(t_list *lst)
 {
-	int data;
-	struct s_list *next;	
-}	t_list;
-
-
-#endif
+	if (lst == NULL)
+		return (NULL);
+	while (lst != NULL && lst->next != NULL)
+	{
+		lst = lst->next;
+	}
+	return (lst);
+}
