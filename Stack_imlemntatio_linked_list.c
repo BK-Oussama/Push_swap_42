@@ -3,6 +3,11 @@
 
 void push(t_list **head, int value)
 {
+    if (head == NULL)
+    {
+        return;
+        exit(1); //
+    }
     t_list *new_node;
     new_node = malloc(sizeof(t_list));
     if (new_node == NULL)
@@ -13,11 +18,21 @@ void push(t_list **head, int value)
     *head = new_node;
     printf("%d\n", new_node->data);
 }
+int stack_is_empty(t_list **head)
+{
+    if (*head == NULL)
+    return -1;
+    else
+        return 0;
+}
 
 int pop(t_list **head)
 {
-    if (*head == NULL || head == NULL)
+    if (stack_is_empty(&head))
+    {
         return -1;
+        exit(1); // handle it as you like!
+    }   
 
     t_list *tmp;
     int value;
