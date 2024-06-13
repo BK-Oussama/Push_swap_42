@@ -1,19 +1,21 @@
 
 #include "push_swap.h"
 
-void swap_stack_a();
-void swap_stack_b();
-void swap_both_stack();
-void push_stack_a();
-void push_stack_b();
-void rotate_stack_a();
-void rotate_stack_b();
-void rotate_both_stack();
-void reverse_rotate_stack_a(); 
-void reverse_rotate_stack_b();
-void reverse_rotate_both_stack();
-
-
+// void swap_stack_a();
+// void swap_stack_b();
+// void swap_both_stack();
+// void push_stack_a();
+// void push_stack_b();
+// void rotate_stack_a();
+// void rotate_stack_b();
+// void rotate_both_stack();
+// void reverse_rotate_stack_a(); 
+// void reverse_rotate_stack_b();
+// void reverse_rotate_both_stack();
+// for the function that the the operation for both stack at the same time, i can use them both!
+// peek();
+// print_stack() // this function print all elemnt in a stack.
+// stack_size();
 void push(t_list **head, int value)
 {
     // if (head == NULL)
