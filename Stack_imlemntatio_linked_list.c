@@ -1,6 +1,19 @@
 
 #include "push_swap.h"
 
+void swap_stack_a();
+void swap_stack_b();
+void swap_both_stack();
+void push_stack_a();
+void push_stack_b();
+void rotate_stack_a();
+void rotate_stack_b();
+void rotate_both_stack();
+void reverse_rotate_stack_a(); 
+void reverse_rotate_stack_b();
+void reverse_rotate_both_stack();
+
+
 void push(t_list **head, int value)
 {
     // if (head == NULL)
