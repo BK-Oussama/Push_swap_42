@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
+/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/27 05:46:18 by ouboukou@st      ###   ########.fr       */
+/*   Created: 2023/11/03 18:26:14 by ouboukou          #+#    #+#             */
+/*   Updated: 2023/11/03 18:33:30 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "./libft/libft.h"
-
-typedef struct s_list
+int	ft_isprint(int arg)
 {
-	int value;
-	struct s_list *next;
-	int 	index;
-}	t_list;
-
-
-#endif
+	if (arg >= 32 && arg <= 126)
+		return (1);
+	else
+		return (0);
+}

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
+/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/27 05:46:18 by ouboukou@st      ###   ########.fr       */
+/*   Created: 2023/11/17 18:16:00 by ouboukou          #+#    #+#             */
+/*   Updated: 2023/12/06 10:42:20 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
-# include "./libft/libft.h"
-
-typedef struct s_list
+char	*ft_strchr(const char *s, int arg)
 {
-	int value;
-	struct s_list *next;
-	int 	index;
-}	t_list;
-
-
-#endif
+	while (*s && *s != (char)arg)
+	{
+		s++;
+		if (*s == (char)arg)
+		{
+			return ((char *)s);
+		}
+	}
+	if (*s == (char)arg)
+	{
+		return ((char *)s);
+	}
+	return (NULL);
+}
