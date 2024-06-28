@@ -6,7 +6,7 @@
 /*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 05:29:19 by ouboukou@st       #+#    #+#             */
-/*   Updated: 2024/06/28 12:56:24 by ouboukou@st      ###   ########.fr       */
+/*   Updated: 2024/06/28 15:44:02 by ouboukou@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,6 +117,8 @@ int push_stack_b(t_list **stack_a, t_list **stack_b)
     ft_putendl_fd("pa", 1);
         return (0);
 }
+
+// Shift UP all elment of stack by 1
 int rotate_stack(t_list **stack)
 {
     t_list *head;
@@ -159,6 +161,7 @@ int rotate_both_stack(t_list **stack_a, t_list **stack_b)
     return 0;
 }
 
+// shift down all element of stack by 1
 int reverse_rotate_stack(t_list **stack)
 {
     t_list *head;
