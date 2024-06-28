@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 21:10:16 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/11/02 21:28:54 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/11/02 17:32:40 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/28 16:54:48 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_isalnum(int arg)
+
+int	ft_isalpha(int arg)
 {
-	if ((arg >= '0' && arg <= '9') || (arg >= 'A' && arg <= 'Z') || (arg >= 'a'
-			&& arg <= 'z'))
-		return (1);
-	else
+	if ((arg >= 65 && arg <= 90) || (arg >= 97 && arg <= 122))
 		return (0);
+	else
+		return (1);
 }

@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/02 17:32:40 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/11/02 18:35:07 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/11/02 21:31:44 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/28 16:54:58 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_isalpha(int arg)
+
+int	ft_isascii(int arg)
 {
-	if ((arg >= 65 && arg <= 90) || (arg >= 97 && arg <= 122))
-	{
-		return (1);
-	}
-	else
+	if (arg >= 0 && arg <= 127)
 		return (0);
+	else
+		return (1);
 }

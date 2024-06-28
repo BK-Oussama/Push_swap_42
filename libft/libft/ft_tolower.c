@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 19:19:54 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/12/28 12:45:15 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/11/17 17:28:31 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/28 16:56:05 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+
+int	ft_tolower(int arg)
 {
-	int	i;
-
-	i = 0;
-	while (lst != NULL)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
+	if (arg >= 65 && arg <= 90)
+		return (arg + 32);
+	else
+		return (arg);
 }

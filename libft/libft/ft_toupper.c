@@ -1,24 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/27 21:27:02 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/12/28 12:44:58 by ouboukou         ###   ########.fr       */
+/*   Created: 2023/11/17 17:14:01 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/28 16:56:15 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+int	ft_toupper(int arg)
 {
-	if (lst == NULL)
-		return (NULL);
-	while (lst != NULL && lst->next != NULL)
-	{
-		lst = lst->next;
-	}
-	return (lst);
+	if (arg >= 97 && arg <= 122)
+		return (arg - 32);
+	else
+		return (arg);
 }
