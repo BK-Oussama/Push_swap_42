@@ -6,7 +6,7 @@
 /*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/27 05:29:19 by ouboukou@st       #+#    #+#             */
-/*   Updated: 2024/06/27 08:04:46 by ouboukou@st      ###   ########.fr       */
+/*   Updated: 2024/06/28 12:56:24 by ouboukou@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,8 @@ int rotate_both_stack(t_list **stack_a, t_list **stack_b)
     if((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
         return (1);
 
-    rotate_stack_a(stack_a);
-    rotate_stack_b(stack_b);
+    rotate_stack(stack_a);
+    rotate_stack(stack_b);
     ft_putendl_fd("rr", 1);
     return 0;
 }
@@ -169,6 +169,44 @@ int reverse_rotate_stack(t_list **stack)
     
     head = *stack;
     tail = ft_lstlast(head);
-    
+
+    // Traverse to find the second last element
+    while (head->next->next != NULL)
+    {
+        head = head->next;
+    }
+    // Detach the last element
+    head->next = NULL;
+
+    tail->next = *stack;
+    *stack = tail;
+
+    return (0);
 }
 
+int reverse_rotate_stack_a(t_list **stack_a)
+{
+    if (reverse_rotate_stack(stack_a) == 1)
+        return (1);
+
+    ft_putendl_fd("rra", 1);
+    return (0);
+}
+
+int reverse_rotate_stack_b(t_list **stack_b)
+{
+    if (reverse_rotate_stack(stack_b) == 1)
+        return (1);
+    ft_putendl_fd("rrb", 1);
+    return 0;
+}
+
+int reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b)
+{
+    if ((ft_lstsize(*stack_a) < 2) || (ft_lstsize(*stack_b) < 2))
+        return (1);
+    reverse_rotate_stack(stack_a);
+    reverse_rotate_stack(stack_b);
+    ft_putendl_fd("rrr", 1);
+    return (0);
+}
