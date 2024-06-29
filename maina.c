@@ -1,17 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   maina.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/21 10:21:19 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/29 22:30:10 by ouboukou         ###   ########.fr       */
+/*   Created: 2024/06/29 21:26:50 by ouboukou          #+#    #+#             */
+/*   Updated: 2024/06/29 22:17:33 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-long	ft_atoi(const char *str)
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+long int	ft_atoi(const char *str)
 {
 	int			i;
 	int			sign;
@@ -31,11 +33,27 @@ long	ft_atoi(const char *str)
 	while ((str[i] != '\0' && str[i] >= '0' && str[i] <= '9'))
 	{
 		rslt = rslt * 10 + (str[i] - '0');
-		if (rslt > 2147483647 && sign == 1)
-			return (2147483648);
-		else if (rslt > 2147483648 && sign == -1)
-			return (-2147483648);
+		if (rslt > 9223372036854775807 / 10 && sign == 1)
+			return (-1);
+		else if (rslt > 9223372036854775807 / 10 && sign == -1)
+			return (0);
 		i++;
 	}
 	return (rslt * sign);
+}
+
+int main()
+{
+    int n;    
+    printf("%d\n", atoi("214748364799"));
+    printf("%d\n", ft_atoi("214748364799"));
+
+    printf("\n%d", atoi("-214748364899"));
+    printf("\n%d", ft_atoi("-214748364899"));
+    
+    printf("\n%d", atoi("-214748364811"));
+    printf("\n%d", ft_atoi("-214748364811"));
+
+
+    return 0;
 }

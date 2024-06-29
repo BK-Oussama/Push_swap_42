@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:11:41 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/29 17:54:16 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 22:24:35 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int				ft_strncmp(const char *s1, const char *s2, size_t n);
 void			*ft_memchr(const void *s, int c, size_t n);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
 char			*ft_strnstr(const char *str, const char *to_find, size_t len);
-int				ft_atoi(const char *str);
+long			ft_atoi(const char *str);
 void			*ft_calloc(size_t n_elm, size_t elm_size);
 char			*ft_strdup(const char *str);
 

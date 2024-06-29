@@ -23,10 +23,10 @@ int main(int argc, char **argv)
     {
         if (check_arguments(argv) == 0)
         {
-            printf("Good input\n");
+            printf("main: Good input\n");
         }
         else
-            printf("bad input\n");
+            printf("main: Bad input\n");
     }
     return (0);
 }

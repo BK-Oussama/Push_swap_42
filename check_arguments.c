@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/29 19:39:47 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 22:21:04 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,14 @@ void	ft_free(char **str)
 
 int	validate_number(const char *str)
 {
-    if (str[0] == '\0')
-    {
-        ft_putendl_fd("Error: empty string", 2);
-        return 1;
-    }
-    
-	int	i;
-    int long num;
-    
-    num = ft_atoi(str);
+	int			i;
+	int long	num;
+
+	if (str[0] == '\0')
+	{
+		ft_putendl_fd("Error: empty string", 2);
+		return (1);
+	}
 	i = 0;
 	if (str[i] == '+' || str[i] == '-')
 		i++;
@@ -46,22 +44,20 @@ int	validate_number(const char *str)
 			return (1);
 		i++;
 	}
-    if (str[i] == '\0')
-    {
-        if(num < INT_MIN || num > INT_MAX)
-            ft_putstr_fd("out of int range", 1);
-        // printf("hey\n");
-        return (1);
-    }
+	num = ft_atoi(str);
+	if (num < INT_MIN || num > INT_MAX)
+	{
+		ft_putstr_fd("Error: Number is out of integer range\n", 2);
+		return (1);
+	}
 	return (0);
 }
-
 
 int	check_single_number(const char *arg)
 {
 	if (validate_number(arg) == 1)
 	{
-		ft_putendl_fd("Error: invalud number", 2);
+		ft_putendl_fd("Error: invalid number", 2);
 		return (1);
 	}
 	return (0);
