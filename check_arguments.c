@@ -6,25 +6,16 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/29 22:21:04 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 23:36:46 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	ft_free(char **str)
+int duplicate_checker(char **argv, int *size)
 {
-	size_t	i;
-
-	i = 0;
-	while (str[i])
-	{
-		free(str[i]);
-		i++;
-	}
-	free(str);
+	int *arr;
+	return 0;
 }
-
 int	validate_number(const char *str)
 {
 	int			i;
@@ -63,7 +54,7 @@ int	check_single_number(const char *arg)
 	return (0);
 }
 
-int	check_multiple_numbers(const char *arg)
+int	check_multiple_numbers(const char *arg, int *count)
 {
 	char	**args;
 	int		k;
@@ -84,6 +75,7 @@ int	check_multiple_numbers(const char *arg)
 			ft_free(args);
 			return (1);
 		}
+		count++;
 		k++;
 	}
 	ft_free(args);
@@ -93,12 +85,15 @@ int	check_multiple_numbers(const char *arg)
 int	check_arguments(char **argv)
 {
 	int	i;
-
+	int count;
+	
 	i = 1;
+	count = 0;
 	while (argv[i])
 	{
 		if (ft_strchr(argv[i], ' ') == NULL)
 		{
+			count++;
 			if (check_single_number(argv[i]) == 1)
 				return (1);
 		}
