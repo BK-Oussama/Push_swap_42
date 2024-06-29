@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 11:38:57 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/12/25 17:29:42 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 17:10:39 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ static size_t	count_words(const char *s, char c)
 	return (count);
 }
 
-static void	ft_free(char **s)
+static void	ft_free(char **str)
 {
 	size_t	i;
 
 	i = 0;
-	while (s[i])
+	while (str[i])
 	{
-		free(s[i]);
+		free(str[i]);
 		i++;
 	}
-	free(s);
+	free(str);
 }
 
 static char	**one_more_line(char const*s, char c, char **str, size_t count)

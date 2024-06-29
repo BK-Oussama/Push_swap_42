@@ -1,19 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:26:25 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/28 16:11:33 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 17:55:19 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
 int main(int argc, char **argv)
 {
-    char **arguments;
-    
-    arguments = argv;
-    
+    if (argc < 2)
+    {
+        ft_putendl_fd("Error: Please Enter an array of numbers!", 2);
+        return (1);
+    }
+    if (argc >= 2)
+    {
+        if (check_arguments(argv) == 0)
+        {
+            printf("Good input\n");
+        }
+        else
+            printf("bad input\n");
+    }
+    return (0);
 }

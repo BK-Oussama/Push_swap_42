@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:11:41 by ouboukou          #+#    #+#             */
-/*   Updated: 2023/12/28 12:35:36 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/29 17:54:16 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;
+	int 			index;
 }					t_list;
 
 t_list			*ft_lstnew(void *content);
