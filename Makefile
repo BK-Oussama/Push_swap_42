@@ -5,7 +5,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 # Source code files
-SRCs = push_swap.c check_arguments.c utils.c
+SRCs = push_swap.c check_arguments.c utils.c initialize_stack.c
 Libft = libft/libft.a
 
 # Executable name
@@ -20,6 +20,7 @@ $(NAME): $(SRCs) $(Libft)
 
 $(Libft):
 	make -s -C libft
+	make bonus -s -C libft 
 	
 # Target to clean up object files
 clean:

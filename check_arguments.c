@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/30 23:28:22 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/01 17:19:39 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,7 @@ int	check_multiple_numbers(const char *arg)
 
 	args = ft_split(arg, ' ');
 	if (args == NULL)
-	{
-		ft_putendl_fd("Split Failed!", 2);
-		return (0);
-		// till you edit this line with error and exit function form pipex!!
-	}
+		ft_error("Split Failed!");
 	k = 0;
 	while (args[k])
 	{

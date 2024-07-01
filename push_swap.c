@@ -19,13 +19,21 @@ int main(int argc, char **argv)
         ft_putendl_fd("Error: Please Enter an array of numbers!", 2);
         return (1);
     }
+    t_list *stack_a;
+
+    stack_a = NULL;
     if (argc >= 2)
     {
         if (check_arguments(argv) == 0)
         {
             printf("main: Good input\n");
-            // duplicate_checker(argv);
-
+            initialize_stack(argv, &stack_a);
+            t_list *head = stack_a;
+            while (head != NULL)
+            {
+                printf("%d\n", head->value);
+                head = head->next;
+            }
         }
         else
             printf("main: Bad input\n");
