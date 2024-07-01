@@ -38,5 +38,6 @@ int main(int argc, char **argv)
         else
             printf("main: Bad input\n");
     }
+    free_stack(&stack_a);
     return (0);
 }

@@ -6,12 +6,26 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 18:35:40 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/01 19:06:32 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+void free_stack(t_list **stack)
+{
+	if (NULL == stack || NULL == *stack)
+		return ;
+	t_list *head;
+	head = *stack;
+	while (*stack)
+	{
+		head = (*stack)->next;
+		free(*stack);
+		*stack = head;
+	}
+	*stack = NULL;
+	 
+}
 int initialize_stack(char **argv, t_list **stack_a)
 {
 	int i;
@@ -24,8 +38,9 @@ int initialize_stack(char **argv, t_list **stack_a)
 		{
 			if ((new_node = ft_lstnew(ft_atoi(argv[i]))) == NULL)
 				ft_error("Error ocuerd while creating node!");
-			ft_lstadd_front(stack_a, new_node);
+			ft_lstadd_back(stack_a, new_node);
 			// i should here free the node after it is in the staclk!!
+			// free(new_node);
 		}
 		else
 		{

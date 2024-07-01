@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 17:29:42 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/01 18:46:58 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,5 +38,6 @@ void	ft_error(char *str);
 void	ft_free(char **str);
 
 int initialize_stack(char **argv, t_list **stack_a);
+void free_stack(t_list **stack);
 
 #endif
