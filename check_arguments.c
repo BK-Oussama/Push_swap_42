@@ -6,16 +6,13 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/06/29 23:36:46 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/06/30 23:28:22 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-int duplicate_checker(char **argv, int *size)
-{
-	int *arr;
-	return 0;
-}
+// int duplicate_checker();
+
 int	validate_number(const char *str)
 {
 	int			i;
@@ -35,7 +32,7 @@ int	validate_number(const char *str)
 			return (1);
 		i++;
 	}
-	num = ft_atoi(str);
+	num = ft_atol(str);
 	if (num < INT_MIN || num > INT_MAX)
 	{
 		ft_putstr_fd("Error: Number is out of integer range\n", 2);
@@ -54,7 +51,7 @@ int	check_single_number(const char *arg)
 	return (0);
 }
 
-int	check_multiple_numbers(const char *arg, int *count)
+int	check_multiple_numbers(const char *arg)
 {
 	char	**args;
 	int		k;
@@ -75,7 +72,6 @@ int	check_multiple_numbers(const char *arg, int *count)
 			ft_free(args);
 			return (1);
 		}
-		count++;
 		k++;
 	}
 	ft_free(args);
@@ -85,15 +81,12 @@ int	check_multiple_numbers(const char *arg, int *count)
 int	check_arguments(char **argv)
 {
 	int	i;
-	int count;
 	
 	i = 1;
-	count = 0;
 	while (argv[i])
 	{
 		if (ft_strchr(argv[i], ' ') == NULL)
 		{
-			count++;
 			if (check_single_number(argv[i]) == 1)
 				return (1);
 		}

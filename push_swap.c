@@ -24,7 +24,7 @@ int main(int argc, char **argv)
         if (check_arguments(argv) == 0)
         {
             printf("main: Good input\n");
-            duplicate_checker(argv);
+            // duplicate_checker(argv);
 
         }
         else
