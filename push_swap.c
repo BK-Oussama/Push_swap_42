@@ -12,32 +12,37 @@
 
 #include "push_swap.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    if (argc < 2)
-    {
-        ft_putendl_fd("Error: Please Enter an array of numbers!", 2);
-        return (1);
-    }
-    t_list *stack_a;
+	t_list	*stack_a;
+	t_list	*head;
 
-    stack_a = NULL;
-    if (argc >= 2)
-    {
-        if (check_arguments(argv) == 0)
-        {
-            printf("main: Good input\n");
-            initialize_stack(argv, &stack_a);
-            t_list *head = stack_a;
-            while (head != NULL)
-            {
-                printf("%d\n", head->value);
-                head = head->next;
-            }
-        }
-        else
-            printf("main: Bad input\n");
-    }
-    free_stack(&stack_a);
-    return (0);
+	if (argc < 2)
+	{
+		ft_putendl_fd("Error: Please Enter an array of numbers!", 2);
+		return (1);
+	}
+	stack_a = NULL;
+	if (argc >= 2)
+	{
+		if (check_arguments(argv) == 0)
+		{
+			printf("main: Good input\n");
+			initialize_stack(argv, &stack_a);
+			head = stack_a;
+			while (head != NULL)
+			{
+				printf("%d\n", head->value);
+				head = head->next;
+			}
+			if (check_duplicates(stack_a) == 0)
+				printf("Stack Unique.\n");
+			else 
+				printf("Stack has duplicates\n");
+		}
+		else
+			printf("main: Bad input\n");
+	}
+	free_stack(&stack_a);
+	return (0);
 }
