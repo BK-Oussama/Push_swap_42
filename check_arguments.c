@@ -6,13 +6,23 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 17:19:39 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/02 17:27:05 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 // int duplicate_checker();
 
+int	contains_only_spaces(char *str)
+{
+	while (*str)
+	{
+		if (ft_isspace(*str) == 1)
+			return(0);
+		str++;
+	}
+	return 1;
+}
 int	validate_number(const char *str)
 {
 	int			i;
@@ -81,6 +91,8 @@ int	check_arguments(char **argv)
 	i = 1;
 	while (argv[i])
 	{
+		if (contains_only_spaces(argv[i]) == 1)
+			ft_error("Looks like you entered only spaces. Please enter a valid integer.");
 		if (ft_strchr(argv[i], ' ') == NULL)
 		{
 			if (check_single_number(argv[i]) == 1)

@@ -6,12 +6,25 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 21:47:58 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:55:51 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int check_stack_order(t_list *stack)
+{
+	t_list *head;
+	
+	head = stack;
+	while (head->next)
+	{
+		if (head->value > head->next->value)
+			return (1);
+		head = head->next;
+	}
+	return (0);
+}
 
 int check_duplicates(t_list *stack)
 {

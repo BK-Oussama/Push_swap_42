@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 21:47:36 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/02 16:56:03 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,6 @@ void	ft_free(char **str);
 int		initialize_stack(char **argv, t_list **stack_a);
 void	free_stack(t_list **stack);
 int check_duplicates(t_list *stack);
+int check_stack_order(t_list *stack);
 
 #endif
