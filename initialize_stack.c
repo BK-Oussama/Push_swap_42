@@ -12,10 +12,10 @@
 
 #include "push_swap.h"
 
-int check_stack_order(t_list *stack)
+int	check_stack_order(t_list *stack)
 {
-	t_list *head;
-	
+	t_list	*head;
+
 	head = stack;
 	while (head->next)
 	{
@@ -26,15 +26,14 @@ int check_stack_order(t_list *stack)
 	return (0);
 }
 
-int check_duplicates(t_list *stack)
+int	check_duplicates(t_list *stack)
 {
-	t_list *current;
-	t_list *traversal;
-	
+	t_list	*current;
+	t_list	*traversal;
+
 	if (NULL == stack || NULL == stack->next)
-		return (1); 
-		// handle error more carfully here
-	
+		return (1);
+	// handle error more carfully here
 	current = stack;
 	while (current != NULL)
 	{
@@ -68,7 +67,7 @@ int	initialize_stack(char **argv, t_list **stack_a)
 {
 	int		i;
 	t_list	*new_node;
-			char **args;
+	char	**args;
 	int		k;
 
 	i = 1;

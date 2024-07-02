@@ -15,8 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
-	// t_list	*stack_b;
-	t_list	*head;
+	t_list	*stack_b;
 
 	if (argc < 2)
 	{
@@ -24,33 +23,36 @@ int	main(int argc, char **argv)
 		return (1);
 	}
 	stack_a = NULL;
-	// stack_b = NULL;
+	stack_b = NULL;
 	if (argc >= 2)
 	{
 		if (check_arguments(argv) == 0)
 		{
 			printf("main: Good input\n");
 			initialize_stack(argv, &stack_a);
+
+			if (check_duplicates(stack_a) == 0)
+				printf("Stack Unique.\n");
+			else 
+				printf("Stack has duplicates\n");
+				
+			if (check_stack_order(stack_a) == 1)
+				printf("stack need to be sorted!\n");
+			else
+				printf("stack is sorted!\n");
+
+			t_list	*head;
 			head = stack_a;
 			while (head != NULL)
 			{
 				printf("%d\n", head->value);
 				head = head->next;
 			}
-			if (check_duplicates(stack_a) == 0)
-				printf("Stack Unique.\n");
-			else 
-				printf("Stack has duplicates\n");
-			if (check_stack_order(stack_a) == 1)
-				printf("stack need to be sorted!\n");
-			else
-				printf("stack is sorted!\n");
-
 		}
 		else
 			printf("main: Bad input\n");
 	}
 	free_stack(&stack_a);
-	// free_stack(&stack_b);
+	free_stack(&stack_b);
 	return (0);
 }
