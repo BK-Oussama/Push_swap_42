@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/03 00:13:12 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/04 22:36:02 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,5 +63,8 @@ int		reverse_rotate_stack(t_list **stack);
 int		reverse_rotate_stack_a(t_list **stack_a);
 int		reverse_rotate_stack_b(t_list **stack_b);
 int		reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b);
+
+// sort algorithms
+void sort_3_number(t_list **stack_a);
 
 #endif

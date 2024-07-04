@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/02 16:55:51 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/03 15:15:55 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	check_stack_order(t_list *stack)
 		head = head->next;
 	}
 	return (0);
-}
+}	
 
 int	check_duplicates(t_list *stack)
 {

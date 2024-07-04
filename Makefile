@@ -5,7 +5,7 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 
 # Source code files
-SRCs = push_swap.c check_arguments.c utils.c initialize_stack.c instruction_reverse_rotate.c instructions_push.c instructions_rotate.c instructions_swap.c
+SRCs = push_swap.c check_arguments.c utils.c initialize_stack.c instruction_reverse_rotate.c instructions_push.c instructions_rotate.c instructions_swap.c sort_stack.c
 Libft = libft/libft.a
 
 # Executable name

@@ -48,6 +48,15 @@ int	main(int argc, char **argv)
 				printf("%d\n", head->value);
 				head = head->next;
 			}
+			printf("After sorting\n");
+			if (ft_lstsize(stack_a) == 3)
+				sort_3_number(&stack_a);
+			t_list *head___ = stack_a;
+			while (head___ != NULL)
+			{
+				printf("%d\n", head___->value);
+				head___ = head___->next;
+			}
 		}
 		else
 			printf("main: Bad input\n");
@@ -56,3 +65,31 @@ int	main(int argc, char **argv)
 	free_stack(&stack_b);
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
