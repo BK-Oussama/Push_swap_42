@@ -6,28 +6,11 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:00:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 23:19:08 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 23:26:34 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void small_sort(t_list **stack_a, t_list **stack_b)
-{
-	int size;
-	
-	size = ft_lstsize(*stack_a);
-	if (size <= 1)
-		return ;
-	else if (size == 2 && check_stack_order(stack_a) == 1)
-		swap_stack_a(stack_a);
-	else if (size == 3)
-		sort_3_number(stack_a);
-	else if (size == 4)
-		sort_4_number(stack_a, stack_b);
-	else if (size == 5)
-		sort_5_number(stack_a, stack_b);	
-}
 
 void	move_element_to_top(t_list **stack_a, int postion)
 {

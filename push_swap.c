@@ -23,6 +23,24 @@
 // 		head = head->next;
 // 	}
 // }
+
+void small_sort(t_list **stack_a, t_list **stack_b)
+{
+	int size;
+	
+	size = ft_lstsize(*stack_a);
+	if (size <= 1)
+		return ;
+	else if (size == 2 && check_stack_order(stack_a) == 1)
+		swap_stack_a(stack_a);
+	else if (size == 3)
+		sort_3_number(stack_a);
+	else if (size == 4)
+		sort_4_number(stack_a, stack_b);
+	else if (size == 5)
+		sort_5_number(stack_a, stack_b);	
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -50,7 +68,6 @@ int	main(int argc, char **argv)
 				small_sort(&stack_a, &stack_b);
 			// print_stack(&stack_a);
 		}
-
 	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
