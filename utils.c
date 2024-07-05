@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:04:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/04 21:58:52 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 20:29:35 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,3 +31,5 @@ void	ft_error(char *str)
 	ft_putendl_fd(str, 2);
 	exit(EXIT_FAILURE);
 }
+
+

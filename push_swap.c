@@ -12,63 +12,45 @@
 
 #include "push_swap.h"
 
+// static void print_stack(t_list **stack)
+// {
+// 	t_list *head;
+	
+// 	head = *stack;
+// 	while (head)
+// 	{
+// 		printf("%d\n", head->value);
+// 		head = head->next;
+// 	}
+// }
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
 
 	if (argc < 2)
-	{
-		ft_putendl_fd("Error: Please Enter an array of numbers!", 2);
 		return (1);
-	}
+
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc >= 2)
 	{
 		if (check_arguments(argv) == 0)
 		{
-			printf("main: Good input\n");
 			initialize_stack(argv, &stack_a);
-
-			if (check_duplicates(stack_a) == 0)
-				printf("Stack Unique.\n");
-			else 
-				printf("Stack has duplicates\n");
-				
-			if (check_stack_order(&stack_a) == 1)
-				printf("stack need to be sorted!\n");
-			else
-				printf("stack is sorted!\n");
-
-			t_list	*head;
-			head = stack_a;
-			while (head != NULL)
-			{
-				printf("%d\n", head->value);
-				head = head->next;
-			}
-			int min_pos = min_element_postion(&stack_a);
-			printf("min postion is: %d\n", min_pos);
-
-			printf("After sorting\n");
-			if (ft_lstsize(stack_a) == 3)
-				sort_3_number(&stack_a);
-			if (ft_lstsize(stack_a) == 5)
-			{
-				printf("helo from main\n");
-				sort_5_number(&stack_a, &stack_b);
-			}
-
-			t_list *head___ = stack_a;
-			while (head___ != NULL)
-			{
-				printf("%d\n", head___->value);
-				head___ = head___->next;
-			}
+			if (ft_lstsize(stack_a) < 2)
+				return (1);
+			if (check_duplicates(stack_a) == 1)
+				ft_error("Error: Duplicate Numbers");
+			if (check_stack_order(&stack_a) == 0)
+				return (1);
+			
+			// print_stack(&stack_a);
+			if (ft_lstsize(stack_a) <= 5)
+				small_sort(&stack_a, &stack_b);
+			// print_stack(&stack_a);
 		}
-		else
-			printf("main: Bad input\n");
+
 	}
 	free_stack(&stack_a);
 	free_stack(&stack_b);
