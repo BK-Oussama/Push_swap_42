@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 16:10:26 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/02 22:31:52 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/04 23:56:06 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int	check_multiple_numbers(const char *arg)
 
 	args = ft_split(arg, ' ');
 	if (args == NULL)
-		ft_error("Split Failed!");
+		ft_error("Error: Split Failed!");
 	k = 0;
 	while (args[k])
 	{
@@ -92,7 +92,7 @@ int	check_arguments(char **argv)
 	while (argv[i])
 	{
 		if (contains_only_spaces(argv[i]) == 1)
-			ft_error("Input contains only white spaces.");
+			ft_error("Error: Input contains only white spaces.");
 		if (ft_strchr(argv[i], ' ') == NULL)
 		{
 			if (check_single_number(argv[i]) == 1)

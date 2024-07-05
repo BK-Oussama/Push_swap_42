@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/03 15:15:55 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/04 23:56:28 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int	initialize_stack(char **argv, t_list **stack_a)
 		{
 			args = ft_split(argv[i], ' ');
 			if (args == NULL)
-				ft_error("Split Failed!");
+				ft_error("Error: Split Failed!");
 			k = 0;
 			while (args[k])
 			{
