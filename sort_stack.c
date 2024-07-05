@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:00:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 19:17:25 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 23:19:08 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,27 +19,16 @@ void small_sort(t_list **stack_a, t_list **stack_b)
 	size = ft_lstsize(*stack_a);
 	if (size <= 1)
 		return ;
-	else if (size == 2)
+	else if (size == 2 && check_stack_order(stack_a) == 1)
 		swap_stack_a(stack_a);
 	else if (size == 3)
 		sort_3_number(stack_a);
 	else if (size == 4)
 		sort_4_number(stack_a, stack_b);
 	else if (size == 5)
-		sort_5_number(stack_a, stack_b);
-	
+		sort_5_number(stack_a, stack_b);	
 }
-void	sort_4_number(t_list **stack_a, t_list **stack_b)
-{
-	int	position;
 
-	position = min_element_postion(stack_a);
-	move_element_to_top(stack_a, position);
-	push_stack_b(stack_a, stack_b);
-	
-	sort_3_number(stack_a);
-	push_stack_a(stack_a, stack_b);
-}
 void	move_element_to_top(t_list **stack_a, int postion)
 {
 	int	stack_size;
@@ -98,6 +87,18 @@ void	sort_5_number(t_list **stack_a, t_list **stack_b)
 	push_stack_a(stack_a, stack_b);
 }
 
+void	sort_4_number(t_list **stack_a, t_list **stack_b)
+{
+	int	position;
+
+	position = min_element_postion(stack_a);
+	move_element_to_top(stack_a, position);
+	push_stack_b(stack_a, stack_b);
+	
+	sort_3_number(stack_a);
+	push_stack_a(stack_a, stack_b);
+}
+
 void	sort_3_number(t_list **stack_a)
 {
 	int	top;
@@ -126,67 +127,3 @@ void	sort_3_number(t_list **stack_a)
 	else if (top < middle && middle > bottom && top > bottom)
 		reverse_rotate_stack_a(stack_a);
 }
-
-// void sort_five_numbers(t_list **stack_a, t_list **stack_b)
-// {
-//     // Step 1: Move the two smallest numbers to stack B
-//     move_smallest_to_b(stack_a, stack_b);
-//     move_smallest_to_b(stack_a, stack_b);
-
-//     // Step 2: Sort the remaining three numbers in stack A
-//     sort_three_numbers(stack_a);
-
-//     // Step 3: Push the numbers back from stack B to stack A
-//     pa(stack_a, stack_b); // Push from stack B to stack A
-//     pa(stack_a, stack_b); // Push from stack B to stack A
-// }
-
-// void move_smallest_to_b(t_list **stack_a, t_list **stack_b)
-// {
-//     int min_pos = find_min_position(stack_a);
-//     move_to_top(stack_a, min_pos);
-//     pb(stack_a, stack_b); // Push from stack A to stack B
-// }
-
-// int find_min_position(t_list **stack)
-// {
-//     int min_value = (*stack)->value;
-//     int min_pos = 0;
-//     int pos = 0;
-//     t_list *temp = *stack;
-
-//     while (temp)
-//     {
-//         if (temp->value < min_value)
-//         {
-//             min_value = temp->value;
-//             min_pos = pos;
-//         }
-//         pos++;
-//         temp = temp->next;
-//     }
-//     return (min_pos);
-// }
-
-// void move_to_top(t_list **stack, int pos)
-// {
-//     int size = ft_lstsize(*stack);
-//     if (pos <= size / 2)
-//     {
-//         while (pos--)
-//             ra(stack); // Rotate
-//     }
-//     else
-//     {
-//         pos = size - pos;
-//         while (pos--)
-//             rra(stack); // Reverse rotate
-//     }
-// }
-
-// void sort_three_numbers(t_list **stack)
-// {
-//     // Implement your 3 number sort logic here
-// }
-
-// // Assume ra, rra, pb, pa, and other helper functions are implemented

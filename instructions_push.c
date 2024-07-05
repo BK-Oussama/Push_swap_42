@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 00:13:53 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/03 00:31:26 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 23:23:54 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,6 @@ int	push_stack_b(t_list **stack_a, t_list **stack_b)
 {
 	if (push(stack_b, stack_a) == 1)
 		return (1);
-	ft_putendl_fd("pa", 1);
+	ft_putendl_fd("pb", 1);
 	return (0);
 }
