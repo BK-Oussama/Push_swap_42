@@ -6,17 +6,17 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/04 23:56:28 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 16:30:25 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_stack_order(t_list *stack)
+int	check_stack_order(t_list **stack)
 {
 	t_list	*head;
 
-	head = stack;
+	head = *stack;
 	while (head->next)
 	{
 		if (head->value > head->next->value)

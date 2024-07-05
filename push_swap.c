@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 			else 
 				printf("Stack has duplicates\n");
 				
-			if (check_stack_order(stack_a) == 1)
+			if (check_stack_order(&stack_a) == 1)
 				printf("stack need to be sorted!\n");
 			else
 				printf("stack is sorted!\n");
@@ -48,9 +48,18 @@ int	main(int argc, char **argv)
 				printf("%d\n", head->value);
 				head = head->next;
 			}
+			int min_pos = min_element_postion(&stack_a);
+			printf("min postion is: %d\n", min_pos);
+
 			printf("After sorting\n");
 			if (ft_lstsize(stack_a) == 3)
 				sort_3_number(&stack_a);
+			if (ft_lstsize(stack_a) == 5)
+			{
+				printf("helo from main\n");
+				sort_5_number(&stack_a, &stack_b);
+			}
+
 			t_list *head___ = stack_a;
 			while (head___ != NULL)
 			{

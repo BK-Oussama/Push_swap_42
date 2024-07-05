@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/04 22:36:02 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/05 18:08:51 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ft_free(char **str);
 int		initialize_stack(char **argv, t_list **stack_a);
 void	free_stack(t_list **stack);
 int		check_duplicates(t_list *stack);
-int		check_stack_order(t_list *stack);
+int		check_stack_order(t_list **stack);
 
 // Stack Instruction
 int		swap(t_list **stack);
@@ -66,5 +66,8 @@ int		reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b);
 
 // sort algorithms
 void sort_3_number(t_list **stack_a);
+void    sort_5_number(t_list **stack_a, t_list **stack_b);
+void move_element_to_top(t_list **stack_a, int postion);
+int min_element_postion(t_list **stack_a);
 
 #endif
