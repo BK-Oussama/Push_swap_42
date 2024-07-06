@@ -66,6 +66,11 @@ int	main(int argc, char **argv)
 			// print_stack(&stack_a);
 			if (ft_lstsize(stack_a) <= 5)
 				small_sort(&stack_a, &stack_b);
+				
+			if (ft_lstsize(stack_a) > 5)
+			{
+				half_sort_stack_b(&stack_a, &stack_b);
+			}
 			// print_stack(&stack_a);
 		}
 	}

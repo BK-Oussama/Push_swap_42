@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 19:27:18 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 00:00:28 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,10 @@ void    sort_5_number(t_list **stack_a, t_list **stack_b);
 
 void    move_element_to_top(t_list **stack_a, int postion);
 int     min_element_postion(t_list **stack_a);
+
+
+int  *order(int size, int *tab);
+void half_sort_stack_b(t_list **stack_a, t_list **stack_b);
+int	bigest_num_in_stack(t_list *stack_a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:00:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 23:26:34 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/06 23:46:36 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	move_element_to_top(t_list **stack_a, int postion)
 		while (postion--)
 			reverse_rotate_stack_a(stack_a);
 	}
+	
 }
 
 int	min_element_postion(t_list **stack_a)
