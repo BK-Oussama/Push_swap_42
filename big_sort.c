@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 19:45:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 17:34:35 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:53:49 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,49 +14,47 @@
 
 // write a function that check the max num max_postion
 
-int *sorted_stack_in_tab(t_list **stack_a, int stack_size)
+int	*sorted_stack_in_tab(t_list **stack_a, int stack_size)
 {
-        int *tab;
-        t_list *head;
-        int i;
-        
-        tab = malloc(sizeof(int) * stack_size);
-        if (!tab)
-            ft_error("Error: malloc failed");
+	int		*tab;
+	t_list	*head;
+	int		i;
 
-        head = *stack_a;    
-        i = 0;
-        while (head)
-        {
-            tab[i] = head->value;
-            head = head->next;
-            i++;
-        }
-        tab = bubble_sort(tab, stack_size);
-        return (tab);
+	tab = malloc(sizeof(int) * stack_size);
+	if (!tab)
+		ft_error("Error: malloc failed");
+	head = *stack_a;
+	i = 0;
+	while (head)
+	{
+		tab[i] = head->value;
+		head = head->next;
+		i++;
+	}
+	tab = bubble_sort(tab, stack_size);
+	return (tab);
 }
 
 int	*bubble_sort(int *tab, int size)
 {
-	int i;
-	int tmp;
+	int	i;
+	int	tmp;
 
 	i = 0;
 	while (i < (size - 1))
 	{
-			if (tab[i] > tab[i + 1])
-			{
-				tmp = tab[i];
-				tab[i] = tab[i + 1];
-				tab[i + 1] = tmp;
-				i = 0;
-			}
-			else
-				i++;
+		if (tab[i] > tab[i + 1])
+		{
+			tmp = tab[i];
+			tab[i] = tab[i + 1];
+			tab[i + 1] = tmp;
+			i = 0;
+		}
+		else
+			i++;
 	}
 	return (tab);
 }
-
 
 int	max_element_postion(t_list *stack_a)
 {
@@ -65,7 +63,7 @@ int	max_element_postion(t_list *stack_a)
 	int		i;
 	t_list	*head;
 
-	i = 1;
+	i = 0;
 	head = stack_a;
 	current_max_value = head->value;
 	while (head)
@@ -83,22 +81,19 @@ int	max_element_postion(t_list *stack_a)
 
 void	big_sort(t_list **stack_a, t_list **stack_b)
 {
-	int		i;
-	int		*tab;
-	int		stack_size;
-	int		range;
-	int		cost;
+	int	i;
+	int	*tab;
+	int	stack_size;
+	int	range;
 
+	int		cost;
 	stack_size = ft_lstsize(*stack_a);
 	tab = sorted_stack_in_tab(stack_a, stack_size);
-	
 	if (stack_size <= 100)
 		range = 17;
 	else
 		range = 30;
-		
-   //------------------------------------- this part of the algorithm is pushing from stack a to stack b using the rang --------------------------------------------
-	
+	//------------ this part of the algorithm is pushing from stack a to stack b using the rang ----------
 	i = 0;
 	while (*stack_a)
 	{
@@ -113,22 +108,21 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 			push_stack_b(stack_a, stack_b);
 			if (ft_lstsize(*stack_b) > 1
 				&& (*stack_b)->value <= (*stack_b)->next->value)
-			{
 				swap_stack_b(stack_b);
-			}
 			i++;
 		}
 		else
 			rotate_stack_a(stack_a);
 	}
+	// ---------push evrey time the biggest number to stuck a for example 100 then 99 then 98 .. -----------
+	// push_back_to_stack_a(stack_a, stack_a);
 	
-    //-------------------------push evrey time the biggest number to stuck a for example 100 then 99 then 98 ... ------------------------------------- 
 	while (*stack_b)
 	{
 		i = max_element_postion(*stack_b);
-		if (i <= (ft_lstsize(*stack_b) / 2) + 1)
+		if (i <= (ft_lstsize(*stack_b) / 2))
 		{
-			cost = i - 1;
+			cost = i;
 			while (cost > 0)
 			{
 				rotate_stack_b(stack_b);
@@ -137,7 +131,7 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 		}
 		else
 		{
-			cost = ft_lstsize(*stack_b) - i + 1;
+			cost = ft_lstsize(*stack_b) - i;
 			while (cost > 0)
 			{
 				reverse_rotate_stack_b(stack_b);
@@ -147,3 +141,30 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 		push_stack_a(stack_a, stack_b);
 	}
 }
+// void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b)
+// {
+// 	int	max_elmnt_postion;
+
+// 	while (*stack_b)
+// 	{
+// 		max_elmnt_postion = max_element_postion(*stack_b);
+// 		if (max_elmnt_postion <= (ft_lstsize(*stack_b) / 2))
+// 		{
+// 			while (max_elmnt_postion > 0)
+// 			{
+// 				rotate_stack_b(stack_b);
+// 				max_elmnt_postion--;
+// 			}
+// 		}
+// 		else
+// 		{
+// 			max_elmnt_postion = ft_lstsize(*stack_b) - max_elmnt_postion;
+// 			while (max_elmnt_postion > 0)
+// 			{
+// 				reverse_rotate_stack_b(stack_b);
+// 				max_elmnt_postion--;
+// 			}
+// 		}
+// 		push_stack_a(stack_a, stack_b);
+// 	}
+// }

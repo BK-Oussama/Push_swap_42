@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 17:30:10 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 19:53:16 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,5 +79,6 @@ int     *sorted_stack_in_tab(t_list **stack_a, int stack_size);
 int	    *bubble_sort(int *tab, int size);
 int     max_element_postion(t_list *stack_a);
 void    big_sort(t_list **stack_a, t_list **stack_b);
+// void push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
 
 #endif
