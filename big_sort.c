@@ -6,66 +6,100 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 19:45:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 00:32:32 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 17:34:35 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// write a function that check the max num position
+// write a function that check the max num max_postion
 
-int	bigest_num_in_stack(t_list *stack_a)
+int *sorted_stack_in_tab(t_list **stack_a, int stack_size)
 {
-	int		b;
-	int		order;
-	int		i;
-	t_list	*temp_a;
+        int *tab;
+        t_list *head;
+        int i;
+        
+        tab = malloc(sizeof(int) * stack_size);
+        if (!tab)
+            ft_error("Error: malloc failed");
 
-	i = 1;
-	temp_a = stack_a;
-	b = temp_a->value;
-	while (temp_a)
-	{
-		if (temp_a->value > b)
-		{
-			b = temp_a->value;
-			order = i;
-		}
-		temp_a = temp_a->next;
-		i++;
-	}
-	return (order);
+        head = *stack_a;    
+        i = 0;
+        while (head)
+        {
+            tab[i] = head->value;
+            head = head->next;
+            i++;
+        }
+        tab = bubble_sort(tab, stack_size);
+        return (tab);
 }
 
-void	half_sort_stack_b(t_list **stack_a, t_list **stack_b)
+int	*bubble_sort(int *tab, int size)
+{
+	int i;
+	int tmp;
+
+	i = 0;
+	while (i < (size - 1))
+	{
+			if (tab[i] > tab[i + 1])
+			{
+				tmp = tab[i];
+				tab[i] = tab[i + 1];
+				tab[i + 1] = tmp;
+				i = 0;
+			}
+			else
+				i++;
+	}
+	return (tab);
+}
+
+
+int	max_element_postion(t_list *stack_a)
+{
+	int		current_max_value;
+	int		max_postion;
+	int		i;
+	t_list	*head;
+
+	i = 1;
+	head = stack_a;
+	current_max_value = head->value;
+	while (head)
+	{
+		if (head->value > current_max_value)
+		{
+			current_max_value = head->value;
+			max_postion = i;
+		}
+		head = head->next;
+		i++;
+	}
+	return (max_postion);
+}
+
+void	big_sort(t_list **stack_a, t_list **stack_b)
 {
 	int		i;
 	int		*tab;
-	t_list	*temp;
-	int		j;
-	int		size;
-	int		len;
+	int		stack_size;
 	int		range;
 	int		cost;
 
-	i = 0;
-	tab = malloc(sizeof(int) * ft_lstsize(*stack_a));
-	temp = *stack_a;
-	j = 0;
-	while (temp)
-	{
-		tab[j] = temp->value;
-		temp = temp->next;
-		j++;
-	}
-	tab = order(ft_lstsize(*stack_a), tab);
-	size = ft_lstsize(*stack_a);
-	len = ft_lstsize(*stack_a);
-	if (len <= 100)
+	stack_size = ft_lstsize(*stack_a);
+	tab = sorted_stack_in_tab(stack_a, stack_size);
+	
+	if (stack_size <= 100)
 		range = 17;
 	else
 		range = 30;
-   //-------------------------------------the algo how to push from stuck a to b using the rang --------------------------------------------
+		
+   //------------------------------------- this part of the algorithm is pushing from stack a to stack b using the rang --------------------------------------------
+	
+	i = 0;
 	while (*stack_a)
 	{
 		if ((*stack_a)->value <= tab[i])
@@ -74,7 +108,7 @@ void	half_sort_stack_b(t_list **stack_a, t_list **stack_b)
 			rotate_stack_b(stack_b);
 			i++;
 		}
-		else if (i + range < size && (*stack_a)->value <= tab[i + range])
+		else if (i + range < stack_size && (*stack_a)->value <= tab[i + range])
 		{
 			push_stack_b(stack_a, stack_b);
 			if (ft_lstsize(*stack_b) > 1
@@ -87,10 +121,11 @@ void	half_sort_stack_b(t_list **stack_a, t_list **stack_b)
 		else
 			rotate_stack_a(stack_a);
 	}
+	
     //-------------------------push evrey time the biggest number to stuck a for example 100 then 99 then 98 ... ------------------------------------- 
 	while (*stack_b)
 	{
-		i = bigest_num_in_stack(*stack_b);
+		i = max_element_postion(*stack_b);
 		if (i <= (ft_lstsize(*stack_b) / 2) + 1)
 		{
 			cost = i - 1;
@@ -111,31 +146,4 @@ void	half_sort_stack_b(t_list **stack_a, t_list **stack_b)
 		}
 		push_stack_a(stack_a, stack_b);
 	}
-}
-
-int	*order(int size, int *tab)
-{
-	int i;
-	int j;
-	int b;
-
-	i = 0;
-	int len = size;
-	while (i < len)
-	{
-		j = 0;
-		while ((i + j) < len)
-		{
-			if (tab[i] > tab[i + j])
-			{
-				b = tab[i];
-				tab[i] = tab[i + j];
-				tab[i + j] = b;
-			}
-			j++;
-		}
-		i++;
-	}
-	i = 0;
-	return (tab);
 }

@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 16:00:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/06 23:46:36 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 16:52:29 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,20 +34,20 @@ void	move_element_to_top(t_list **stack_a, int postion)
 
 int	min_element_postion(t_list **stack_a)
 {
-	int		curent_min_value;
-	t_list	*head;
-	int		i;
+	int		current_min_value;
 	int		min_postion;
+	int		i;
+	t_list	*head;
 
 	i = 0;
 	min_postion = 0;
 	head = *stack_a;
-	curent_min_value = head->value;
+	current_min_value = head->value;
 	while (head)
 	{
-		if (head->value < curent_min_value)
+		if (head->value < current_min_value)
 		{
-			curent_min_value = head->value;
+			current_min_value = head->value;
 			min_postion = i;
 		}
 		i++;

@@ -69,7 +69,7 @@ int	main(int argc, char **argv)
 				
 			if (ft_lstsize(stack_a) > 5)
 			{
-				half_sort_stack_b(&stack_a, &stack_b);
+				big_sort(&stack_a, &stack_b);
 			}
 			// print_stack(&stack_a);
 		}

@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 00:00:28 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/07 17:30:10 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ int		reverse_rotate_stack_a(t_list **stack_a);
 int		reverse_rotate_stack_b(t_list **stack_b);
 int		reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b);
 
+
 // sort algorithms
 void small_sort(t_list **stack_a, t_list **stack_b);
 void    sort_3_number(t_list **stack_a);
@@ -74,8 +75,9 @@ void    move_element_to_top(t_list **stack_a, int postion);
 int     min_element_postion(t_list **stack_a);
 
 
-int  *order(int size, int *tab);
-void half_sort_stack_b(t_list **stack_a, t_list **stack_b);
-int	bigest_num_in_stack(t_list *stack_a);
+int     *sorted_stack_in_tab(t_list **stack_a, int stack_size);
+int	    *bubble_sort(int *tab, int size);
+int     max_element_postion(t_list *stack_a);
+void    big_sort(t_list **stack_a, t_list **stack_b);
 
 #endif
