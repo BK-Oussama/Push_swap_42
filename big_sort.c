@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   big_sort.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/06 19:45:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 19:53:49 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/09 03:15:50 by ouboukou@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,14 +86,12 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 	int	stack_size;
 	int	range;
 
-	int		cost;
 	stack_size = ft_lstsize(*stack_a);
 	tab = sorted_stack_in_tab(stack_a, stack_size);
 	if (stack_size <= 100)
 		range = 17;
 	else
 		range = 30;
-	//------------ this part of the algorithm is pushing from stack a to stack b using the rang ----------
 	i = 0;
 	while (*stack_a)
 	{
@@ -114,57 +112,33 @@ void	big_sort(t_list **stack_a, t_list **stack_b)
 		else
 			rotate_stack_a(stack_a);
 	}
-	// ---------push evrey time the biggest number to stuck a for example 100 then 99 then 98 .. -----------
-	// push_back_to_stack_a(stack_a, stack_a);
-	
+	// ---------push evrey time the biggest number to stack a for example 100 then 99 then 98.. -----------
+	push_back_to_stack_a(stack_a, stack_b);
+}
+void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b)
+{
+	int	max_elmnt_postion;
+
 	while (*stack_b)
 	{
-		i = max_element_postion(*stack_b);
-		if (i <= (ft_lstsize(*stack_b) / 2))
+		max_elmnt_postion = max_element_postion(*stack_b);
+		if (max_elmnt_postion <= (ft_lstsize(*stack_b) / 2))
 		{
-			cost = i;
-			while (cost > 0)
+			while (max_elmnt_postion > 0)
 			{
 				rotate_stack_b(stack_b);
-				cost--;
+				max_elmnt_postion--;
 			}
 		}
 		else
 		{
-			cost = ft_lstsize(*stack_b) - i;
-			while (cost > 0)
+			max_elmnt_postion = ft_lstsize(*stack_b) - max_elmnt_postion;
+			while (max_elmnt_postion > 0)
 			{
 				reverse_rotate_stack_b(stack_b);
-				cost--;
+				max_elmnt_postion--;
 			}
 		}
 		push_stack_a(stack_a, stack_b);
 	}
 }
-// void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b)
-// {
-// 	int	max_elmnt_postion;
-
-// 	while (*stack_b)
-// 	{
-// 		max_elmnt_postion = max_element_postion(*stack_b);
-// 		if (max_elmnt_postion <= (ft_lstsize(*stack_b) / 2))
-// 		{
-// 			while (max_elmnt_postion > 0)
-// 			{
-// 				rotate_stack_b(stack_b);
-// 				max_elmnt_postion--;
-// 			}
-// 		}
-// 		else
-// 		{
-// 			max_elmnt_postion = ft_lstsize(*stack_b) - max_elmnt_postion;
-// 			while (max_elmnt_postion > 0)
-// 			{
-// 				reverse_rotate_stack_b(stack_b);
-// 				max_elmnt_postion--;
-// 			}
-// 		}
-// 		push_stack_a(stack_a, stack_b);
-// 	}
-// }

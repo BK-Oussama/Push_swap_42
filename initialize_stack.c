@@ -24,7 +24,7 @@ int	check_stack_order(t_list **stack)
 		head = head->next;
 	}
 	return (0);
-}	
+}
 
 int	check_duplicates(t_list *stack)
 {

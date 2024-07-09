@@ -15,7 +15,7 @@
 // static void print_stack(t_list **stack)
 // {
 // 	t_list *head;
-	
+
 // 	head = *stack;
 // 	while (head)
 // 	{
@@ -24,10 +24,10 @@
 // 	}
 // }
 
-void small_sort(t_list **stack_a, t_list **stack_b)
+void	small_sort(t_list **stack_a, t_list **stack_b)
 {
-	int size;
-	
+	int	size;
+
 	size = ft_lstsize(*stack_a);
 	if (size <= 1)
 		return ;
@@ -38,7 +38,7 @@ void small_sort(t_list **stack_a, t_list **stack_b)
 	else if (size == 4)
 		sort_4_number(stack_a, stack_b);
 	else if (size == 5)
-		sort_5_number(stack_a, stack_b);	
+		sort_5_number(stack_a, stack_b);
 }
 
 int	main(int argc, char **argv)
@@ -48,7 +48,6 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (1);
-
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc >= 2)
@@ -62,14 +61,12 @@ int	main(int argc, char **argv)
 				ft_error("Error: Duplicate Numbers");
 			if (check_stack_order(&stack_a) == 0)
 				return (1);
-			
 			// print_stack(&stack_a);
 			if (ft_lstsize(stack_a) <= 5)
 				small_sort(&stack_a, &stack_b);
-				
 			if (ft_lstsize(stack_a) > 5)
 			{
-				big_sort(&stack_a, &stack_b);
+				optimized_reverse_sort(&stack_a, &stack_b);
 			}
 			// print_stack(&stack_a);
 		}
@@ -78,31 +75,3 @@ int	main(int argc, char **argv)
 	free_stack(&stack_b);
 	return (0);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

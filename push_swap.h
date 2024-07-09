@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
+/*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/07 19:53:16 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/09 01:27:09 by ouboukou@st      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,21 +64,23 @@ int		reverse_rotate_stack_a(t_list **stack_a);
 int		reverse_rotate_stack_b(t_list **stack_b);
 int		reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b);
 
-
 // sort algorithms
-void small_sort(t_list **stack_a, t_list **stack_b);
-void    sort_3_number(t_list **stack_a);
+void	small_sort(t_list **stack_a, t_list **stack_b);
+void	sort_3_number(t_list **stack_a);
 void	sort_4_number(t_list **stack_a, t_list **stack_b);
-void    sort_5_number(t_list **stack_a, t_list **stack_b);
+void	sort_5_number(t_list **stack_a, t_list **stack_b);
 
-void    move_element_to_top(t_list **stack_a, int postion);
-int     min_element_postion(t_list **stack_a);
+void	move_element_to_top(t_list **stack_a, int postion);
+int		min_element_postion(t_list **stack_a);
+
+int		*sorted_stack_in_tab(t_list **stack_a, int stack_size);
+int		*bubble_sort(int *tab, int size);
+int		max_element_postion(t_list *stack_a);
+void	big_sort(t_list **stack_a, t_list **stack_b);
+void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
 
 
-int     *sorted_stack_in_tab(t_list **stack_a, int stack_size);
-int	    *bubble_sort(int *tab, int size);
-int     max_element_postion(t_list *stack_a);
-void    big_sort(t_list **stack_a, t_list **stack_b);
-// void push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
+int reverse_sorted_percentage(t_list *stack);
+void optimized_reverse_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

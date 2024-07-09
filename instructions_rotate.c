@@ -12,7 +12,6 @@
 
 #include "push_swap.h"
 
-
 // Shift UP all elment of stack by 1
 int	rotate_stack(t_list **stack)
 {

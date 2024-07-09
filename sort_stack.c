@@ -29,7 +29,6 @@ void	move_element_to_top(t_list **stack_a, int postion)
 		while (postion--)
 			reverse_rotate_stack_a(stack_a);
 	}
-	
 }
 
 int	min_element_postion(t_list **stack_a)
@@ -78,7 +77,6 @@ void	sort_4_number(t_list **stack_a, t_list **stack_b)
 	position = min_element_postion(stack_a);
 	move_element_to_top(stack_a, position);
 	push_stack_b(stack_a, stack_b);
-	
 	sort_3_number(stack_a);
 	push_stack_a(stack_a, stack_b);
 }
