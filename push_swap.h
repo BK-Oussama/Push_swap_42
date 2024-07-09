@@ -3,30 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ouboukou@student.42.fr <ouboukou>          +#+  +:+       +#+        */
+/*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/09 01:27:09 by ouboukou@st      ###   ########.fr       */
+/*   Updated: 2024/07/09 17:17:56 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include "./libft/libft.h"
-
-// typedef struct s_list
-// {
-// 	int value;
-// 	struct s_list *next;
-// 	int 	index;
-// }	t_list;
-
-// typedef struct s_list
-// {
-// 	int value;
-// 	struct s_list *next;
-// 	int 	index;
-// }	t_list;
+# include "libft.h"
 
 // Check and Parse Arguments
 int		check_arguments(char **argv);
@@ -34,13 +20,16 @@ int		validate_number(const char *str);
 int		check_multiple_numbers(const char *arg);
 int		check_single_number(const char *arg);
 
-// Utilis
+// Utils
 void	ft_error(char *str);
 void	ft_free(char **str);
+int     stack_is_empty(t_list **stack);
+void	free_stack(t_list **stack);
+void    print_stack(t_list **stack);
+void    free_stack_and_exit(t_list **stack, char *msg);
 
 // Initialize Stack
 int		initialize_stack(char **argv, t_list **stack_a);
-void	free_stack(t_list **stack);
 int		check_duplicates(t_list *stack);
 int		check_stack_order(t_list **stack);
 
@@ -64,7 +53,7 @@ int		reverse_rotate_stack_a(t_list **stack_a);
 int		reverse_rotate_stack_b(t_list **stack_b);
 int		reverse_rotate_both_stack(t_list **stack_a, t_list **stack_b);
 
-// sort algorithms
+// Sort Algorithms
 void	small_sort(t_list **stack_a, t_list **stack_b);
 void	sort_3_number(t_list **stack_a);
 void	sort_4_number(t_list **stack_a, t_list **stack_b);
@@ -79,8 +68,7 @@ int		max_element_postion(t_list *stack_a);
 void	big_sort(t_list **stack_a, t_list **stack_b);
 void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
 
-
-int reverse_sorted_percentage(t_list *stack);
-void optimized_reverse_sort(t_list **stack_a, t_list **stack_b);
+int     reverse_sorted_percentage(t_list *stack);
+void    optimized_big_sort(t_list **stack_a, t_list **stack_b);
 
 #endif

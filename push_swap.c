@@ -12,18 +12,6 @@
 
 #include "push_swap.h"
 
-// static void print_stack(t_list **stack)
-// {
-// 	t_list *head;
-
-// 	head = *stack;
-// 	while (head)
-// 	{
-// 		printf("%d\n", head->value);
-// 		head = head->next;
-// 	}
-// }
-
 void	small_sort(t_list **stack_a, t_list **stack_b)
 {
 	int	size;
@@ -46,8 +34,6 @@ int	main(int argc, char **argv)
 	t_list	*stack_a;
 	t_list	*stack_b;
 
-	if (argc < 2)
-		return (1);
 	stack_a = NULL;
 	stack_b = NULL;
 	if (argc >= 2)
@@ -56,22 +42,18 @@ int	main(int argc, char **argv)
 		{
 			initialize_stack(argv, &stack_a);
 			if (ft_lstsize(stack_a) < 2)
-				return (1);
+				free_stack_and_exit(&stack_a, "");
 			if (check_duplicates(stack_a) == 1)
-				ft_error("Error: Duplicate Numbers");
+				free_stack_and_exit(&stack_a, "Error: Duplicate Numbers");
 			if (check_stack_order(&stack_a) == 0)
-				return (1);
-			// print_stack(&stack_a);
+				free_stack_and_exit(&stack_a, "");
 			if (ft_lstsize(stack_a) <= 5)
 				small_sort(&stack_a, &stack_b);
 			if (ft_lstsize(stack_a) > 5)
-			{
-				optimized_reverse_sort(&stack_a, &stack_b);
-			}
-			// print_stack(&stack_a);
+				optimized_big_sort(&stack_a, &stack_b);
 		}
+		free_stack(&stack_a);
+		free_stack(&stack_b);
 	}
-	free_stack(&stack_a);
-	free_stack(&stack_b);
 	return (0);
 }

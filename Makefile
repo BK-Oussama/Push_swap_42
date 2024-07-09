@@ -2,10 +2,10 @@
 CC = cc
 
 # Define CFLAGS (compiler flags)
-CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -I. -Ilibft #-g -fsanitize=address
 
 # Source code files
-SRCs = push_swap.c check_arguments.c utils.c initialize_stack.c instruction_reverse_rotate.c instructions_push.c instructions_rotate.c instructions_swap.c sort_stack.c big_sort.c reverse_sort.c
+SRCs =  push_swap.c utils.c instruction/instruction_reverse_rotate.c instruction/instructions_push.c instruction/instructions_rotate.c instruction/instructions_swap.c parsing/check_arguments.c parsing/initialize_stack.c sort/big_sort.c sort/optimized_big_sort.c sort/sort_stack.c
 Libft = libft/libft.a
 
 # Executable name

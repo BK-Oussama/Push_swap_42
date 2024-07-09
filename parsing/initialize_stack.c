@@ -6,25 +6,11 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 20:21:57 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/09 16:06:43 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	check_stack_order(t_list **stack)
-{
-	t_list	*head;
-
-	head = *stack;
-	while (head->next)
-	{
-		if (head->value > head->next->value)
-			return (1);
-		head = head->next;
-	}
-	return (0);
-}
 
 int	check_duplicates(t_list *stack)
 {
@@ -48,21 +34,21 @@ int	check_duplicates(t_list *stack)
 	}
 	return (0);
 }
-void	free_stack(t_list **stack)
+
+int	check_stack_order(t_list **stack)
 {
 	t_list	*head;
 
-	if (NULL == stack || NULL == *stack)
-		return ;
 	head = *stack;
-	while (*stack)
+	while (head->next)
 	{
-		head = (*stack)->next;
-		free(*stack);
-		*stack = head;
+		if (head->value > head->next->value)
+			return (1);
+		head = head->next;
 	}
-	*stack = NULL;
+	return (0);
 }
+
 int	initialize_stack(char **argv, t_list **stack_a)
 {
 	int		i;
