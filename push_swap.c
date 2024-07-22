@@ -41,12 +41,10 @@ int	main(int argc, char **argv)
 		if (check_arguments(argv) == 0)
 		{
 			initialize_stack(argv, &stack_a);
-			if (ft_lstsize(stack_a) < 2)
-				free_stack_and_exit(&stack_a, "");
 			if (check_duplicates(stack_a) == 1)
-				free_stack_and_exit(&stack_a, "Error: Duplicate Numbers");
+				free_stack_and_exit(&stack_a, "Error", 1);
 			if (check_stack_order(&stack_a) == 0)
-				free_stack_and_exit(&stack_a, "");
+				free_stack_and_exit(&stack_a, "NULL", 0);
 			if (ft_lstsize(stack_a) <= 5)
 				small_sort(&stack_a, &stack_b);
 			if (ft_lstsize(stack_a) > 5)

@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/10 15:45:15 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/09 17:17:56 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/10 19:59:35 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,13 @@ int		check_single_number(const char *arg);
 // Utils
 void	ft_error(char *str);
 void	ft_free(char **str);
-int     stack_is_empty(t_list **stack);
 void	free_stack(t_list **stack);
-void    print_stack(t_list **stack);
-void    free_stack_and_exit(t_list **stack, char *msg);
+void	print_stack(t_list **stack);
+void	free_stack_and_exit(t_list **stack, char *msg, int true);
 
 // Initialize Stack
-int		initialize_stack(char **argv, t_list **stack_a);
+void	initialize_stack(char **argv, t_list **stack_a);
+void	initialize_stack_1(char **argv, int index, t_list **stack_a);
 int		check_duplicates(t_list *stack);
 int		check_stack_order(t_list **stack);
 
@@ -61,14 +61,16 @@ void	sort_5_number(t_list **stack_a, t_list **stack_b);
 
 void	move_element_to_top(t_list **stack_a, int postion);
 int		min_element_postion(t_list **stack_a);
+int		max_element_postion(t_list *stack_a);
 
 int		*sorted_stack_in_tab(t_list **stack_a, int stack_size);
 int		*bubble_sort(int *tab, int size);
-int		max_element_postion(t_list *stack_a);
-void	big_sort(t_list **stack_a, t_list **stack_b);
-void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
+int		reverse_sorted_percentage(t_list *stack);
 
-int     reverse_sorted_percentage(t_list *stack);
-void    optimized_big_sort(t_list **stack_a, t_list **stack_b);
+void	big_sort(t_list **stack_a, t_list **stack_b);
+void	optimized_big_sort(t_list **stack_a, t_list **stack_b);
+void	push_back_to_stack_a(t_list **stack_a, t_list **stack_b);
+void	push_elements_to_stack_b(t_list **stack_a, t_list **stack_b, int *tab,
+			int range);
 
 #endif

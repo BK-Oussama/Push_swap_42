@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/04 13:11:41 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/01 18:23:09 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/10 00:04:12 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,6 @@ typedef struct s_list
 {
 	int				value;
 	struct s_list	*next;
-	int				index;
 }					t_list;
 
 t_list				*ft_lstnew(int value);

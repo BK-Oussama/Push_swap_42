@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:04:45 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/09 17:18:01 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:18:58 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,7 @@
 void	ft_error(char *str)
 {
 	ft_putendl_fd(str, 2);
-	exit(EXIT_FAILURE);
-}
-
-int		stack_is_empty(t_list **stack)
-{
-    if (*stack == NULL || stack == NULL)
-        return (1);
-    else
-        return (0);
+	exit(EXIT_SUCCESS);
 }
 
 void	ft_free(char **str)
@@ -38,6 +30,7 @@ void	ft_free(char **str)
 	}
 	free(str);
 }
+
 void	free_stack(t_list **stack)
 {
 	t_list	*head;
@@ -54,20 +47,9 @@ void	free_stack(t_list **stack)
 	*stack = NULL;
 }
 
-void 	print_stack(t_list **stack)
-{
-	t_list *head;
-
-	head = *stack;
-	while (head)
-	{
-		printf("%d\n", head->value);
-		head = head->next;
-	}
-}
-
-void free_stack_and_exit(t_list **stack, char *msg)
+void	free_stack_and_exit(t_list **stack, char *msg, int true)
 {
 	free_stack(stack);
-	ft_error(msg);
+	if (true)
+		ft_error(msg);
 }

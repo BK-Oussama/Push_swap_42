@@ -6,7 +6,7 @@
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/29 23:20:50 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/09 16:06:43 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/10 16:18:13 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,7 @@ int	check_duplicates(t_list *stack)
 	t_list	*traversal;
 
 	if (NULL == stack || NULL == stack->next)
-		return (1);
-	// handle error more carfully here
+		return (3);
 	current = stack;
 	while (current != NULL)
 	{
@@ -27,7 +26,7 @@ int	check_duplicates(t_list *stack)
 		while (traversal != NULL)
 		{
 			if (current->value == traversal->value)
-				return (1); // or print message and exit directly!
+				return (1);
 			traversal = traversal->next;
 		}
 		current = current->next;
@@ -49,40 +48,49 @@ int	check_stack_order(t_list **stack)
 	return (0);
 }
 
-int	initialize_stack(char **argv, t_list **stack_a)
+void	initialize_stack(char **argv, t_list **stack_a)
 {
 	int		i;
 	t_list	*new_node;
-	char	**args;
-	int		k;
 
 	i = 1;
 	while (argv[i])
 	{
-		if (ft_strchr(argv[i], ' ') == NULL)
+		if (NULL == ft_strchr(argv[i], ' '))
 		{
-			if ((new_node = ft_lstnew(ft_atoi(argv[i]))) == NULL)
-				ft_error("Error ocuerd while creating node!");
+			new_node = ft_lstnew(ft_atoi(argv[i]));
+			if (NULL == new_node)
+				ft_error("Error");
 			ft_lstadd_back(stack_a, new_node);
-			// i should here free the node after it is in the staclk!!
-			// free(new_node);
 		}
 		else
-		{
-			args = ft_split(argv[i], ' ');
-			if (args == NULL)
-				ft_error("Error: Split Failed!");
-			k = 0;
-			while (args[k])
-			{
-				if ((new_node = ft_lstnew(ft_atoi(args[k]))) == NULL)
-					ft_error("Error ocuerd while creating node!");
-				ft_lstadd_back(stack_a, new_node);
-				k++;
-			}
-			ft_free(args);
-		}
+			initialize_stack_1(argv, i, stack_a);
 		i++;
 	}
-	return (0);
+	if (ft_lstsize(*stack_a) < 2)
+	{
+		free_stack(stack_a);
+		exit (EXIT_SUCCESS);
+	}
+}
+
+void	initialize_stack_1(char **argv, int index, t_list **stack_a)
+{
+	int		i;
+	char	**args;
+	t_list	*new_node;
+
+	args = ft_split(argv[index], ' ');
+	if (NULL == args)
+		ft_error("Error");
+	i = 0;
+	while (args[i])
+	{
+		new_node = ft_lstnew(ft_atoi(args[i]));
+		if (NULL == new_node)
+			ft_error("Error");
+		ft_lstadd_back(stack_a, new_node);
+		i++;
+	}
+	ft_free(args);
 }

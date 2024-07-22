@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   instructions_push.c                                :+:      :+:    :+:   */
+/*   operations_push.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ouboukou <ouboukou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/03 00:13:53 by ouboukou          #+#    #+#             */
-/*   Updated: 2024/07/05 23:23:54 by ouboukou         ###   ########.fr       */
+/*   Updated: 2024/07/10 20:56:26 by ouboukou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-// Move the top element of a stack, to either stack a or stack b
 int	push(t_list **dest_stack, t_list **src_stack)
 {
 	t_list	*tmp;
@@ -20,12 +19,12 @@ int	push(t_list **dest_stack, t_list **src_stack)
 	t_list	*src_head;
 
 	if (ft_lstsize(*src_stack) == 0)
-		ft_error("Push Error: src stack is empty");
+		return (0);
 	dest_head = *dest_stack;
-	src_head = *src_stack; // Update source stack head
+	src_head = *src_stack;
 	tmp = src_head;
-	src_head = src_head->next; // Move source head to the next element
-	*src_stack = src_head;     // Update source stack head
+	src_head = src_head->next;
+	*src_stack = src_head;
 	if (!dest_head)
 	{
 		dest_head = tmp;
@@ -34,8 +33,8 @@ int	push(t_list **dest_stack, t_list **src_stack)
 	}
 	else
 	{
-		tmp->next = dest_head; // Link new elment to current head
-		*dest_stack = tmp;     // Update destination stck head
+		tmp->next = dest_head;
+		*dest_stack = tmp;
 	}
 	return (0);
 }
